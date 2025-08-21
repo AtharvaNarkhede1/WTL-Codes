@@ -1,0 +1,41 @@
+body {
+  background: linear-gradient(135deg, #737373, #d5ace2);
+  min-height: 100vh;
+}
+
+h1 {
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+
+/* glass effect on backgrnd*/
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 0px;
+}
+
+/* complete task line
+#taskList li.completed {
+  text-decoration: line-through;
+  color: #6c757d;
+  background-color: #e2e6ea;
+} */
+
+/* noti animatn */
+#notification.show {
+  animation: fadeInOut 3s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}

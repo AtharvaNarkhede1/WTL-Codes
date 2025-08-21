@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="formgradient">
+    <div class="formheader">
+        <h1>Booking Appointment Form</h1>
+        <p><i> please fill all items correctly!</i></p>
+    </div>
+
+    <div class="form-container">
+        <h2>Book a Mobile Appointment</h2>
+        <form action="#" method="post">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required>
+
+            <label for="date">Preferred Date</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Preferred Time</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="service">Select Service</label>
+            <select id="service" name="service" required>
+                <option value="">-- Choose a service --</option>
+                <option value="screen_repair">Screen Repair</option>
+                <option value="battery_replacement">Battery Replacement</option>
+                <option value="software_issue">Software Issue</option>
+                <option value="others">Others</option>
+            </select>
+
+            <button type="submit" class="submit-btn">Book Appointment</button>
+        </form>
+    </div>
+    </div>
+</body>
+</html>

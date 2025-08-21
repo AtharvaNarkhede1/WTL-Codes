@@ -1,0 +1,44 @@
+/* 
+support page css code */
+.launch-page {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.launch-box {
+    text-align: center;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 90%;
+}
+
+.launch-box h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+.launch-box p {
+    font-size: 18px;
+    color: #555;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.launch-home-link {
+    text-decoration: none;
+    color: #0071e3;
+    font-size: 16px;
+}
+
+.launch-home-link:hover {
+    text-decoration: underline;
+}

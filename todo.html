@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+
+  <div class="container py-5">
+    <h1 class="text-center text-white mb-4">To-Do List</h1>
+
+    <!-- Tsk ip -->
+    <div class="mb-3 glass">
+      <input type="text" id="taskInput" class="form-control" placeholder="Enter a task">
+    </div>
+
+    <!-- priority -->
+    <div class="mb-3 glass">
+      <select id="priorityselect" class="form-select">
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+    </div>
+
+    <!-- category -->
+    <div class="mb-3 glass">
+      <select id="categoryselect" class="form-select">
+        <option value="Work">Work</option>
+        <option value="Personal">Personal</option>
+      </select>
+    </div>
+
+    <!-- status -->
+    <div class="mb-3 glass">
+      <select id="statusselect" class="form-select">
+        <option value="Pending">Pending</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Completed">Completed</option>
+      </select>
+    </div>
+
+    <!-- due-->
+    <div class="mb-3 glass">
+      <input type="date" id="dateInput" class="form-control">
+    </div>
+
+    <!-- add tsk btn -->
+    <div class="flex gap-2 mb-4">
+      <button id="addTaskBtn" class="btn btn-primary">Add Task</button>
+      <button onclick="clearAll()" class="btn btn-outline-danger">Clear All</button>
+      <button onclick="clearCompleted()" class="btn btn-outline-warning">Clear Completed</button>
+    </div>
+
+    <!-- task list -->
+    <ul id="taskList" class="list-group mb-3"></ul>
+
+    <!-- progress [notyet [hard hai]]-->
+    <progress id="progressBar" value="0" max="100" class="w-100 mb-3"></progress>
+
+    <!-- noti -->
+    <div id="notification" class="alert alert-success text-center d-none">Task added!</div>
+  </div>
+
+  <script src="todo.js"></script>
+</body>
+</html>

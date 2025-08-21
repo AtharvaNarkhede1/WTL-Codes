@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Task01</h1>
+
+    <lable>Enter Student Name</lable>
+    <input type="Text" id="name"><br><br>
+    <button id="addBtn">Add</button>
+    <br><br>
+    <table border="1" id="table">
+        <tr>
+            <th>Name</th>
+            <th>Vote</th>
+            <th>Action</th>
+        </tr>
+        <tbody id="tablebody"></tbody>
+    </table>
+
+
+
+
+
+    <!-- <label>First Number:</label>
+    <input type="number" id="firstNum"><br><br>
+    
+    <label>Second Number:</label>
+    <input type="number" id="secondNum"><br><br>
+    
+    <button id="addBtn">Add</button> <button id="subBtn">Subtract</button> <button id="mulBtn">Multiply</button><br><br>
+    
+    <label>Result:</label>
+    <input type="text" id="result" readonly><br> -->
+    
+    
+    
+    <script>
+        console.log("JavaScript file loaded successfully.");
+
+
+        //adding value to the table
+        document.getElementById("addBtn").addEventListener("click", function() {
+            let name = document.getElementById("name").value;
+
+            let row=document.createElement("tr");
+
+            let cell=document.createElement("td");
+            cell.textContent=name;
+            row.append(cell);
+            cell=document.createElement("td");
+            cell.textContent=0;
+            row.append(cell);
+
+            cell=document.createElement("td");
+            let btn=document.createElement("button");
+            btn.textContent="Vote";
+            btn.addEventListener("click", (e)=>{
+                e.target.parentElement.previousElementSibling.textContent = currentVote + 1;
+
+            
+            });
+            cell.append(btn);   
+            row.append(cell);
+            document.getElementById("table").append(row);
+
+        });
+
+        // // Simple Calculator in JavaScript code
+        // let add=document.getElementById("addBtn");
+        // let sub=document.getElementById("subBtn");
+        // let result=document.getElementById("result");
+
+        // //for addition
+        // document.getElementById("addBtn").addEventListener("click", function() {
+        //     let firstNum = parseFloat(document.getElementById("firstNum").value);
+        //     let secondNum = parseFloat(document.getElementById("secondNum").value);
+        //     let sum = firstNum + secondNum;
+        //     document.getElementById("result").value = sum;
+        // });
+
+        // //for substraction
+        // document.getElementById("subBtn").addEventListener("click", function() {
+        //     let firstNum = parseFloat(document.getElementById("firstNum").value);
+        //     let secondNum = parseFloat(document.getElementById("secondNum").value);
+        //     let difference = firstNum - secondNum;
+        //     document.getElementById("result").value = difference;
+        // });
+
+        // //for multiplication
+        // document.getElementById("mulBtn").addEventListener("click", function() {
+        //     let firstNum = parseFloat(document.getElementById("firstNum").value);
+        //     let secondNum = parseFloat(document.getElementById("secondNum").value);
+        //     let product = firstNum * secondNum;
+        //     document.getElementById("result").value = product;
+
+        // })
+
+
+        // /*Changing css of the element in javascript*/
+        // document.getElementById("result").style.backgroundColor = "lightblue"; //changes the background color of the result input field
+        // //we can also add event listeners to change the style dynamically
+        // document.getElementById("addBtn").addEventListener("mouseover", function() {
+        //     this.style.backgroundColor = "lightgreen"; //changes the background color to light green on mouse over
+        // });
+        
+
+        //create elemtent
+        // remove - removes html element from the webpage
+
+
+
+        
+        // var arr = [10, 20, 30, 40, 50, 60];
+        
+        // //let arr1=arr.filter((x)=>{if(x>=40) return x;});
+        // let arr1=arr.filter((x)=>x>=40);
+        // console.log(arr1);
+        // if(arr1.length>0) //.length is used to check if the array is not empty similar to java
+        // let obj={
+        //     name:"Atharva",
+        //     age:20,
+        //     city:"MLK"
+        // }
+        // obj.address="Pune";
+        // for(let k in obj){
+            //     //console.log(obj.age);
+            //     console.log(k+obj[k]);
+            // }
+            // console.log(obj.name);
+            // console.log(obj.age);
+            
+            
+            
+            /* CREATING OBJECTS IN JAVASCRIPT */
+            // let obj = id:1,name:"Atharva",age:20,city:"MLK";
+            // {
+                //     console.log(obj.name);
+        //     console.log(obj.age);
+        //     console.log(obj.city);
+        // }
+        // obj.marks = 90;
+
+
+
+
+        /* CREATING ARRAYS of objects IN JAVASCRIPT */
+        // let arr = [
+        //     {id: 1, name: "Atharva", age: 20, city: "MLK"},
+        //     {id: 2, name: "Aditya", age: 21, city: "Pune"},
+        //     {id: 3, name: "Yash", age: 22, city: "Mumbai"}
+        // ];
+
+        // for(let i = 0; i < arr.length; i++) {
+        //     console.log(arr[i].name);
+        //     console.log(arr[i].age);
+        //     console.log(arr[i].city);
+        // }
+        
+
+        /* DISPLAY ELEMENT OUUTPUT OF HTML IN JAVASCRIPT */
+        // let x=document.getElementById("demo");  //demo is the id of the element in html  can use class/div as well
+        // console.log(x); //displays output in console stored in demo id in html
+        // x.textContent = "Hello, this is a demo text!"; //changes the text content of the element with id demo in frontend
+        // //we can also use innerHTML to change the content of the element
+        // x.style.color = "blue"; //changes the color of the text to blue
+
+        
+        </script>
+</body>
+</html>
