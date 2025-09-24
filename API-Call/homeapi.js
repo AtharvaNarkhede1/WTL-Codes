@@ -18,7 +18,7 @@ const API_KEY = "22017445878a667db41f71da00f0d306"; // put your OpenWeather API 
         document.getElementById("timestamp").textContent = new Date().toLocaleString();
 
       } catch (err) {
-        console.error("❌ Error:", err);
+        console.error("Error:", err);
       }
     }
 
