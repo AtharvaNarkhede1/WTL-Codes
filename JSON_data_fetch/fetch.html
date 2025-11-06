@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies Dashboard</title>
+    <style>
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            padding: 10px;
+            margin: 10px 0;
+            background: #f9f9f9;
+            width: fit-content;
+        }
+    </style>
+</head>
+
+<body onload="fetchData()">
+    <h1>Showing Data Fetched from JSON</h1>
+    <div id="container"></div>
+
+    <script>
+        async function fetchData() {
+            let container = document.getElementById('container');
+
+            try {
+                const response = await fetch('movies.json');
+                const data = await response.json();
+                console.log(data);
+
+                for (let key in data) {
+                    let obj = data[key];
+                    console.log(obj);
+
+                    let card = document.createElement('div');
+                    card.className = 'card';
+
+                    let list = document.createElement('ul');
+
+                    for (let key in obj) {
+                        console.log(key + " : " + obj[key]);
+
+                        let item = document.createElement('li');
+                        item.textContent = `${key}: ${obj[key]}`;
+                        list.appendChild(item);
+                    }
+
+                    card.appendChild(list);
+                    container.appendChild(card);
+                }
+            } catch (err) {
+                console.error("Error fetching data:", err);
+            }
+        }
+    </script>
+</body>
+
+</html>

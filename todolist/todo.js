@@ -1,7 +1,7 @@
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];  // Load saved tasks
 
 function saveTasks() {
-    localStorage.setItem('tasks', JSON.stringify(tasks)); 
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 function renderTasks() {
@@ -90,7 +90,7 @@ function clearAll() {
 }
 
 function clearCompleted() {
-    tasks = tasks.filter(tasks => !tasks.completed); 
+    tasks = tasks.filter(tasks => !tasks.completed);
     saveTasks();
     renderTasks();
 }

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+      <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    
+    <div class="container">
+        <h2> TODO LIST </h2>
+
+        <div class="main">
+            <input type="text" placeholder="Enter the task">
+        </div>
+
+        <div class="main">
+            <select id="priority">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+        </div>
+
+        <div class="main">
+            <select id="category">
+                <option value="Work">Work</option>
+                <option value="Personal">Personal</option>
+             </select>
+        </div>
+
+        <div class="main">
+        <select id="status">
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>    
+        </div>
+
+        <div class="main">
+        <input type="date" id="date">    
+        </div>
+
+        <div class="main">
+            <button id="addtaskbtn" class="btn btn-primary">Add Task</button>
+            <button OnClick="clearall()" class="btn">Clear All</button>
+            <button OnClick="clearcompleted()" class="btn">Clear Completed</button>
+        </div>
+    </div>
+
+
+    <div class="tablecontainer">
+        <h2>FETCHED DATA</h2>
+        <table>
+            <td>task name</td>
+            <td>priority</td>
+            <td>category</td>
+            <td>status</td>
+            <td>date</td>
+        </table>
+        <button OnClick="getdata()" class="btn">Get Data</button>
+    </div>
+    <script src="todojs.js"></script>
+</body>
+</html>

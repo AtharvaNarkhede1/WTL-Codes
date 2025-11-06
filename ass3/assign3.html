@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To-Do list</title>
+ <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+  <div class="main">
+    <h1>Todo List</h1>
+    <input type="text" id="text" placeholder="Enter a task..." />
+
+    <button id="btn" onclick="task()">Add Task</button>
+    <button id="btn1" onclick="datafetch()">backup</button>
+    <ul id="taskList">
+    </ul>
+  </div>
+
+
+
+
+  <script>
+function task() {
+  const taskText=document.getElementById("text").value.trim();
+  if (taskText==="") return;
+  addTask(taskText);
+  document.getElementById("text").value = "";
+}
+
+function addTask(taskText) {
+  let newtask=document.createElement("li");
+  let span=document.createElement("span");
+  span.textContent=taskText;
+  newtask.appendChild(span);
+
+  updatetask(newtask, span);
+  deletetask(newtask);
+
+  document.getElementById("taskList").appendChild(newtask);
+}
+
+function updatetask(newtask, span){
+  let updatebtn=document.createElement("button");
+  updatebtn.textContent="Edit";
+  updatebtn.className="updatebtn";
+  newtask.appendChild(updatebtn);
+
+  updatebtn.onclick=function(){
+    if(updatebtn.textContent==="Edit"){
+      let input=document.createElement("input");
+      input.type="text";
+      input.style.width="100px";
+    
+      input.value=span.textContent;
+      newtask.insertBefore(input, span);
+      newtask.removeChild(span);
+      updatebtn.textContent="Save";
+    } else {
+      let input=newtask.querySelector("input");
+      input.style.width="100px";
+      span.textContent=input.value;
+      newtask.insertBefore(span, input);
+      newtask.removeChild(input);
+      updatebtn.textContent="Edit";
+    }
+  }
+}
+
+function deletetask(newtask)
+{
+let deletebtn=document.createElement("button");
+deletebtn.textContent="Delete";
+deletebtn.className="deletebtn";
+newtask.appendChild(deletebtn);
+deletebtn.onclick=function()
+{
+    newtask.remove();
+}
+}
+
+async function datafetch()
+{
+    try{
+    let response=await fetch("https://jsonplaceholder.typicode.com/todos");
+    let data=await response.json();
+    
+    data.slice(0, 3).forEach(item=>
+        {
+         addTask(item.title)
+        }
+    )}
+    catch(e)
+    {
+        console.log(e);
+    }
+
+}
+
+
+</script>
+</body>
+</html>

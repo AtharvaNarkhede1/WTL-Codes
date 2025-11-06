@@ -1,0 +1,15 @@
+[
+    {
+        "name":"avatar",
+        "director":"christopher nolan",
+        "releaseDate":"10-10-2010",
+        "year":"2010",
+        "genre":"documentry"
+    },{
+        "name":"Avengers",
+        "director":"Russo Brothers",
+        "releaseDate":"10-10-2014",
+        "year":"2014",
+        "genre":"action"
+    }
+]

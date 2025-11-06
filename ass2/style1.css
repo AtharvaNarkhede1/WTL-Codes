@@ -1,0 +1,106 @@
+ 
+    body {
+      background: linear-gradient(to right, #b721e5, #6905a7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .main {
+      width: 90%;
+      max-width: 500px;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      padding: 30px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #6905a7;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #000000;
+      font-size: 16px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+    #btn {
+      width: 40%;
+      padding: 12px;
+      margin-left: 40px;
+      color: white;
+      background: linear-gradient(to right, #b721e5, #6905a7);
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #btn:hover {
+      background: linear-gradient(to right, #a01ed2, #5d0497);
+    }
+ #btn1 {
+      width: 40%;
+      padding: 12px;
+      color: white;
+      background: linear-gradient(to right, #b721e5, #6905a7);
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #btn1:hover {
+      background: linear-gradient(to right, #a01ed2, #5d0497);
+    }
+    li{
+        list-style: none;
+        width: 100%;
+        margin-bottom: 7px;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-around;
+
+    }
+  
+    .updatebtn
+    {
+    width: 80px;
+    height: 40px;
+      padding: 12px;
+      color: white;
+      background: linear-gradient(to right, #b721e5, #6905a7);
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .deletebtn
+    {
+      height: 40px;
+        width: 80px;
+      color: white;
+      background: linear-gradient(to right, #b721e5, #6905a7);
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }

@@ -1,0 +1,32 @@
+body{
+    background-color: #fff;
+    display: flex;
+justify-content: center; /* Centers horizontally */
+align-items: center; /* Centers vertically */
+height: 100vh;
+    
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical centering */
+    align-items: center;     /* horizontal centering */
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    height: 400px;
+    border-radius: 8px;
+    background-color: rgb(59, 182, 223);
+}
+
+.main input,
+.main button {
+    padding: 5px;
+    border-radius: 8px;
+    width: 200px;
+    margin: 10px 0; /* spacing between elements */
+}
+.main button{
+    width: 100px;
+}
+

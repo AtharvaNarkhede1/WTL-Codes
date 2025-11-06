@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;  
+    justify-content: flex-start; 
+    background: linear-gradient(135deg, #130f17, #8fa9d6);
+    margin: 0;
+    padding: 2%;
+    min-height: 100vh;      
+}
+
+h2 {
+    color: white;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2%;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 70%;
+    margin-bottom: 3%; 
+}
+
+.main {
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+    background-color: white;
+    width: 100%;
+    padding: 1%;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.btn {
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 8px;
+    margin-bottom: 10px;
+    transition: background 0.5s;
+}
+
+.btn:hover {
+    background: #020202;
+    color: white;
+}
+
+.tablecontainer {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+table {
+    color: white;
+    border-collapse: collapse;
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 8px;
+    width: 100%;
+}
+
+th, td {
+    text-align: center;
+    padding: 10px;
+    border: 2px;
+}
+
+th {
+    color: white;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 5%;
+    }
+
+    .container, .tablecontainer {
+        max-width: 100%;
+        padding: 6%;
+        border-radius: 12px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .btn {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        font-size: 0.85rem;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}
