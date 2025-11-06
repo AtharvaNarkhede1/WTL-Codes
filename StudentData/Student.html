@@ -117,6 +117,220 @@ th, td {
 
   <div id="fetch" class="section">
     <h3>Fetch Records</h3>
+    <!-- <button onclick="fetchAllRecords()">Fetch All</button> -->
+    <input type="text" id="fetchName" placeholder="Enter Name">
+    <button onclick="fetchOneRecord()">Fetch One</button>
+    <div id="records"></div>
+  </div>
+
+  <p id="result"></p>
+
+  <script>
+    const API_BASE = "http://localhost/StudentData/Server-DB/";
+
+    function showSection(sectionId) {
+      document.querySelectorAll(".section").forEach(sec => sec.style.display = "none");
+      document.getElementById(sectionId).style.display = "block";
+      document.getElementById("result").innerText = "";
+      document.getElementById("records").innerHTML = "";
+    }
+
+    async function insertRecord() {
+      const name = document.getElementById("insertName").value;
+      const marks = document.getElementById("insertMarks").value;
+
+      const response = await fetch(API_BASE + "insertdata.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, marks })
+      });
+      document.getElementById("result").innerText = await response.text();
+    }
+
+    async function deleteRecord() {
+      const name = document.getElementById("deleteName").value;
+
+      const response = await fetch(API_BASE + "deletedata.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name })
+      });
+      document.getElementById("result").innerText = await response.text();
+    }
+
+    async function updateRecord() {
+      const old_name = document.getElementById("oldName").value;
+      const new_name = document.getElementById("newName").value;
+      const new_marks = document.getElementById("newMarks").value;
+
+      const response = await fetch(API_BASE + "updatedata.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ old_name, new_name, new_marks })
+      });
+      document.getElementById("result").innerText = await response.text();
+    }
+
+    // async function fetchAllRecords() {
+    //   const response = await fetch(API_BASE + "fetchdata.php", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify({})
+    //   });
+    //   const data = await response.json();
+    //   renderTable(data.records || []);
+    // }
+
+    async function fetchOneRecord() {
+      const name = document.getElementById("fetchName").value;
+
+      const response = await fetch(API_BASE + "fetchdata.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name })
+      });
+      const data = await response.json();
+      if (data.record) {
+        renderTable([data.record]);
+      } else {
+        document.getElementById("records").innerText = data.message || "No record found.";
+      }
+    }
+
+    function renderTable(records) {
+      if (records.length === 0) {
+        document.getElementById("records").innerText = "No records found.";
+        return;
+      }
+      let table = "<table><tr><th>Name</th><th>Marks</th></tr>";
+      records.forEach(r => {
+        table += `<tr><td>${r.name}</td><td>${r.marks}</td></tr>`;
+      });
+      table += "</table>";
+      document.getElementById("records").innerHTML = table;
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student CRUD App</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f9f9f9;
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  color: #222;
+}
+
+/* Buttons */
+button {
+  margin: 5px;
+  padding: 8px 14px;
+  background: #555;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+button:hover {
+  background: #333;
+}
+
+/* Sections */
+.section {
+  display: none;
+  margin: 15px auto;
+  padding: 15px;
+  border: 1px solid #ccc;
+  background: #fff;
+  max-width: 400px;
+}
+
+.section h3 {
+  margin-top: 0;
+  color: #444;
+}
+
+input {
+  display: block;
+  width: 90%;
+  margin: 8px 0;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+#result {
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: center;
+  color: green;
+}
+
+/* Table */
+table {
+  border-collapse: collapse;
+  margin-top: 10px;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ccc;
+}
+th, td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+#records {
+  margin-top: 15px;
+}
+
+  </style>
+</head>
+<body>
+  <h2>Student Database Operations</h2>
+
+  <!-- Buttons -->
+  <div style="text-align:center;">
+    <button onclick="showSection('insert')">Insert Record</button>
+    <button onclick="showSection('delete')">Delete Record</button>
+    <button onclick="showSection('update')">Update Record</button>
+    <button onclick="showSection('fetch')">Fetch Records</button>
+  </div>
+
+  <!-- Sections -->
+  <div id="insert" class="section">
+    <h3>Insert Record</h3>
+    <input type="text" id="insertName" placeholder="Enter Name">
+    <input type="number" id="insertMarks" placeholder="Enter Marks">
+    <button onclick="insertRecord()">Submit</button>
+  </div>
+
+  <div id="delete" class="section">
+    <h3>Delete Record</h3>
+    <input type="text" id="deleteName" placeholder="Enter Name to Delete">
+    <button onclick="deleteRecord()">Delete</button>
+  </div>
+
+  <div id="update" class="section">
+    <h3>Update Record</h3>
+    <input type="text" id="oldName" placeholder="Old Name">
+    <input type="text" id="newName" placeholder="New Name">
+    <input type="number" id="newMarks" placeholder="New Marks">
+    <button onclick="updateRecord()">Update</button>
+  </div>
+
+  <div id="fetch" class="section">
+    <h3>Fetch Records</h3>
     <button onclick="fetchAllRecords()">Fetch All</button>
     <input type="text" id="fetchName" placeholder="Enter Name">
     <button onclick="fetchOneRecord()">Fetch One</button>
